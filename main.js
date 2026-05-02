@@ -1,13 +1,28 @@
 barba.init({
     transitions: [{
-        name: 'default-transition',
-        leave() {
-            console.log('Barba: leave fired')
+        name: 'fade',
+
+        leave(data) {
+            return gsap.to(data.current.container, {
+                opacity: 0,
+                duration: 0.4,
+                ease: 'power2.inOut'
+            })
         },
-        enter() {
-            console.log('Barba: enter fired')
+
+        enter(data) {
+            return gsap.from(data.next.container, {
+                opacity: 0,
+                duration: 0.4,
+                ease: 'power2.inOut'
+            })
         }
     }]
 })
 
-console.log('Barba version:', barba.version)
+barba.hooks.afterEnter(() => {
+    window.Webflow && window.Webflow.destroy()
+    window.Webflow && window.Webflow.ready()
+    window.Webflow && window.Webflow.require('ix2').init()
+    window.scrollTo(0, 0)
+})
