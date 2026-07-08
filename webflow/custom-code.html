@@ -17,15 +17,16 @@
 
   /* Dark theme overrides — the JS bundle sets data-page-theme on <body>
      from each barba container's data-page-theme attribute.
-     Variable names follow Webflow's compiled pattern for a collection
-     named "tokens": --tokens---<variable-name>.
-     Fill values once art direction locks (Figma phase). */
+     Names verified against compiled staging CSS 2026-07-07: Webflow
+     emits the synced collection as --_tokens---<variable-name>.
+     Values mirror the "dark" mode of the tokens collection in Figma —
+     keep both in sync when art direction updates the palette. */
   body[data-page-theme="dark"] {
-    /* --tokens---background:   #0a0a0a; */
-    /* --tokens---background-2: #161616; */
-    /* --tokens---text:         #f2f2f2; */
-    /* --tokens---text-muted:   #9a9a9a; */
-    /* --tokens---border:       #2a2a2a; */
+    --_tokens---background:   #0a0a0a;
+    --_tokens---background-2: #161616;
+    --_tokens---text:         #f2f2f2;
+    --_tokens---text-muted:   #9a9a9a;
+    --_tokens---border:       #2a2a2a;
   }
 </style>
 
