@@ -1,0 +1,48 @@
+<!--
+  Webflow custom code for Portfolio 3.0 — source of truth, paste into:
+  Site settings → Custom code. Keep this file in sync with what's in Webflow.
+
+  HEAD section first, FOOTER section below.
+-->
+
+<!-- ========================== HEAD ========================== -->
+
+<!-- Fluid scaling: html font-size scales with viewport, so every rem value
+     (type, spacing, radius) scales proportionally. 16px at 1440w, capped
+     14–20px. Design in rem everywhere; never px. -->
+<style>
+  html {
+    font-size: clamp(14px, 0.625rem + 0.4167vw, 20px);
+  }
+
+  /* Dark theme overrides — the JS bundle sets data-page-theme on <body>
+     from each barba container's data-page-theme attribute.
+     Variable names follow Webflow's compiled pattern for a collection
+     named "tokens": --tokens---<variable-name>.
+     Fill values once art direction locks (Figma phase). */
+  body[data-page-theme="dark"] {
+    /* --tokens---background:   #0a0a0a; */
+    /* --tokens---background-2: #161616; */
+    /* --tokens---text:         #f2f2f2; */
+    /* --tokens---text-muted:   #9a9a9a; */
+    /* --tokens---border:       #2a2a2a; */
+  }
+</style>
+
+<!-- ========================== FOOTER ========================== -->
+
+<!-- JS loader: CDN in production, localhost when dev mode is on.
+     Toggle in the browser console on staging:
+       localStorage.setItem('dev', 'true')   // use local dev server
+       localStorage.removeItem('dev')        // back to CDN
+     Ship a release: bump the @tag below (see README "Ship to production"). -->
+<script>
+  (function () {
+    var DEV = 'http://localhost:5173/src/index.js';
+    var PROD = 'https://cdn.jsdelivr.net/gh/haxxeren1/portfolio-website@v2.1.0/dist/main.js';
+    var s = document.createElement('script');
+    if (localStorage.getItem('dev') === 'true') { s.type = 'module'; s.src = DEV; }
+    else { s.src = PROD; s.defer = true; }
+    document.head.appendChild(s);
+  })();
+</script>
