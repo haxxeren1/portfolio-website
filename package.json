@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "JavaScript powering damba.design — Webflow portfolio (v2 rebuild)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@barba/core": "^2.10.3",
+    "gsap": "^3.12.7"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}
