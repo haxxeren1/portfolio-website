@@ -92,7 +92,7 @@ The JS finds its targets via attributes set in the Webflow Designer:
 | Attribute | Where | Module |
 |---|---|---|
 | `data-barba="wrapper"` | page wrapper (navbar outside container = persistent) | index.js |
-| `data-barba="container"` + `data-barba-namespace="home\|works\|case-study\|404"` | main content wrapper per page | index.js |
+| `data-barba="container"` + `data-barba-namespace="home\|work\|about\|styleguide\|case-study\|404"` | main content wrapper per page ("Index" is a reserved page name in Webflow, so the index page is `work`) | index.js |
 | `data-page-theme="light\|dark"` | on each barba container — drives body theme + nav/transition colors | index.js |
 | `data-theme-nav` | navbar (gets `light`/`dark` set per page theme) | index.js |
 | `data-theme-transition` | transition overlay element | index.js |
