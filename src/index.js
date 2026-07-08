@@ -10,6 +10,7 @@ import { CustomEase } from 'gsap/CustomEase'
 import Lenis from 'lenis'
 
 import { initIntro } from './modules/intro.js'
+import { initAccordion } from './modules/accordion.js'
 import { initHovers } from './modules/hovers.js'
 import { initWebgl } from './modules/webgl.js'
 import { initPlayers } from './modules/player.js'
@@ -64,6 +65,7 @@ function initAfterEnterFunctions(next) {
   nextPage = next || document
 
   // Runs after enter animation completes
+  if (has('[data-accordion]')) initAccordion(nextPage)
   if (has('[data-hover]')) initHovers(nextPage)
   if (has('[data-webgl]')) initWebgl(nextPage)
   if (has('video[data-hls-src]')) initPlayers(nextPage)
